@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #111827, #020617);
+    color: #e5e7eb;
+}
+
+/* ALERT BAR */
+.alert-bar {
+    background: linear-gradient(90deg, #7f1d1d, #450a0a);
+    color: #fecaca;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-bar button {
+    background: #ef4444;
+    border: none;
+    padding: 8px 18px;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* HEADER */
+.header {
+    padding: 30px 30px 10px;
+}
+
+.header h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.header p {
+    color: #9ca3af;
+    margin-top: 6px;
+}
+
+/* STAT CARDS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    padding: 25px 30px;
+}
+
+.card {
+    background: linear-gradient(145deg, #1f2937, #020617);
+    padding: 22px;
+    border-radius: 16px;
+    border: 1px solid #1f2937;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card h4 {
+    font-size: 14px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.card p {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.card.warning {
+    background: linear-gradient(145deg, #facc15, #eab308);
+    color: #111827;
+}
+
+.card.success p {
+    color: #22c55e;
+}
+
+/* MAP SECTION */
+.map-section {
+    margin: 30px;
+    padding: 25px;
+    background: linear-gradient(145deg, #1f2937, #020617);
+    border-radius: 18px;
+    border: 1px solid #1f2937;
+}
+
+.map-section h3 {
+    margin-bottom: 18px;
+}
+
+/* TRANSFORMERS */
+.map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    padding: 15px 0;
+}
+
+.transformer {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.transformer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* Status Colors */
+.normal { background: linear-gradient(135deg, #16a34a, #22c55e); }
+.warning { background: linear-gradient(135deg, #facc15, #eab308); color: #111827; }
+.critical { background: linear-gradient(135deg, #dc2626, #ef4444); }
+.maintenance { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+
+/* LEGEND */
+.legend {
+    margin-top: 20px;
+}
+
+.legend span {
+    margin-right: 10px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+}
