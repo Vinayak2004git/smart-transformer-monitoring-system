@@ -1,0 +1,145 @@
+/* FORCE VISIBILITY RESET */
+* {
+  box-sizing: border-box;
+}
+
+/* MAIN CONTAINER */
+.technician-dashboard {
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #eef2f7;
+  color: #111827;
+  font-family: Arial, sans-serif;
+}
+
+/* ALERT BAR */
+.alert-bar {
+  background-color: #dc2626;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HEADER */
+.header {
+  margin-top: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+.header p {
+  color: #374151;
+}
+
+/* STATS */
+.stats {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #d1d5db;
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #374151;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+/* STATUS BORDERS */
+.card.warning {
+  border-left: 6px solid #f59e0b;
+}
+
+.card.success {
+  border-left: 6px solid #16a34a;
+}
+
+/* MAP SECTION */
+.map-section {
+  margin-top: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.map {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+/* TRANSFORMERS */
+.transformer {
+  padding: 14px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+}
+
+.transformer.normal {
+  background-color: #16a34a;
+}
+
+.transformer.warning {
+  background-color: #f59e0b;
+}
+
+.transformer.critical {
+  background-color: #dc2626;
+}
+
+.transformer.maintenance {
+  background-color: #6b7280;
+}
+
+/* LEGEND */
+.legend {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.legend span {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+}
+
+.legend .normal {
+  background-color: #16a34a;
+}
+
+.legend .warning {
+  background-color: #f59e0b;
+}
+
+.legend .critical {
+  background-color: #dc2626;
+}
+
+.legend .maintenance {
+  background-color: #6b7280;
+}
