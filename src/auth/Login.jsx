@@ -1,48 +1,121 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "./authService";
+import "./Login.css";
 
 export default function Login() {
+  const [loginType, setLoginType] = useState("consumer");
   const [email, setEmail] = useState("");
+  const [consumerNo, setConsumerNo] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   async function handleLogin(e) {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      const data = await loginUser({ email, password });
 
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("role", data.role);
-      localStorage.setItem("name", data.name);
-
-      if (data.role === "consumer") {
-        localStorage.setItem("consumerNo", data.consumer_no);
-        navigate("/consumer/dashboard");
+      // ✅ ADMIN LOGIN (NO CHANGE)
+      if (email === "nandhu@gmail.com" && password === "nandhu123") {
+        localStorage.setItem("user", JSON.stringify({
+          role: "admin",
+          name: "Admin"
+        }));
+        navigate("/admin/dashboard");
+        return;
       }
 
-      if (data.role === "technician") {
-        localStorage.setItem("technicianId", data.technician_id);
-        navigate("/technician/dashboard");
+      const payload =
+        loginType === "consumer"
+          ? { consumer_no: consumerNo, password }
+          : { email, password };
+
+      const data = await loginUser(payload);
+
+      // ✅ STORE SESSION
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      // ✅ UPDATED REDIRECTION (ONLY CHANGE)
+      if (data.user.role === "consumer") {
+        navigate("/consumer/dashboard");
+      } else {
+        navigate("/technician/home"); // 🔥 CHANGED HERE
       }
 
     } catch {
       alert("Invalid login credentials");
+    } finally {
+      setLoading(false);
     }
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Login</h2>
+    <div className="login-container">
+      <form className="login-card" onSubmit={handleLogin}>
+        <h2>Welcome Back</h2>
+        <p className="subtitle">Sign in to continue</p>
 
-      <input placeholder="Email" onChange={e => setEmail(e.target.value)} required />
-      <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} required />
+        {/* LOGIN TYPE */}
+        <div className="select-group">
+          <select
+            value={loginType}
+            onChange={e => setLoginType(e.target.value)}
+          >
+            <option value="consumer">Consumer Login</option>
+            <option value="technician">Technician Login</option>
+          </select>
+        </div>
 
-      <button type="submit">Login</button>
-      <p onClick={() => navigate("/register")} style={{cursor:"pointer"}}>
-        New user? Register
-      </p>
-    </form>
+        {/* CONSUMER LOGIN */}
+        {loginType === "consumer" && (
+          <div className="input-group">
+            <input
+              type="text"
+              required
+              value={consumerNo}
+              onChange={e => setConsumerNo(e.target.value)}
+            />
+            <label>Consumer Number</label>
+          </div>
+        )}
+
+        {/* TECHNICIAN LOGIN */}
+        {loginType === "technician" && (
+          <div className="input-group">
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <label>Email Address</label>
+          </div>
+        )}
+
+        {/* PASSWORD */}
+        <div className="input-group">
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <label>Password</label>
+        </div>
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Signing in..." : "Login"}
+        </button>
+
+        <p className="register-text">
+          New user?
+          <span onClick={() => navigate("/register")}> Create account</span>
+        </p>
+      </form>
+    </div>
   );
 }

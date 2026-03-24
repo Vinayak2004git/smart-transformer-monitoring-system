@@ -1,0 +1,158 @@
+/* MAIN PAGE */
+.history-page-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #0f172a, #1e293b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* CARD */
+.history-card {
+  width: 100%;
+  max-width: 1000px;
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* HEADER */
+.history-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  background: none;
+  border: none;
+  color: #60a5fa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.title-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-box {
+  background: rgba(99,102,241,0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* TABLE */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.payment-table th {
+  text-align: left;
+  padding: 12px;
+  color: #94a3b8;
+  font-size: 13px;
+  border-bottom: 1px solid #334155;
+}
+
+.payment-table td {
+  padding: 12px;
+  border-bottom: 1px solid #334155;
+  font-size: 14px;
+}
+
+.payment-table tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* DATE */
+.date-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-stamp {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* TRANSACTION */
+.tx-id {
+  font-family: monospace;
+  color: #cbd5f5;
+}
+
+/* AMOUNT */
+.amount-cell {
+  font-weight: bold;
+}
+
+/* STATUS */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.status-pill.success {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+}
+
+.status-pill.pending {
+  background: rgba(251,191,36,0.2);
+  color: #facc15;
+}
+
+/* BUTTON */
+.download-btn {
+  background: #2563eb;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background: #1d4ed8;
+}
+
+/* EMPTY */
+.empty-history {
+  text-align: center;
+  color: #94a3b8;
+  padding: 30px;
+}
+
+.muted-icon {
+  opacity: 0.5;
+}
+
+/* LOADER */
+.skeleton-loader {
+  text-align: center;
+  padding: 20px;
+  color: #94a3b8;
+}

@@ -1,0 +1,161 @@
+.register-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.register-card {
+  background: #ffffff;
+  width: 400px;
+  padding: 42px;
+  border-radius: 14px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.7s ease;
+}
+
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 6px;
+  color: #1f2937;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 26px;
+}
+
+/* Inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #2563eb;
+}
+
+/* Floating label */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  color: #9ca3af;
+  font-size: 13px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.3s ease;
+  background: #fff;
+  padding: 0 6px;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -8px;
+  font-size: 11px;
+  color: #2563eb;
+}
+
+/* Select */
+/* Select group */
+.select-group {
+  margin-bottom: 22px;
+}
+
+.select-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.select-group select {
+  width: 100%;
+  padding: 14px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Focus state */
+.select-group select:focus {
+  border-color: #2563eb;
+}
+
+/* Button */
+.register-card button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.register-card button:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+}
+
+.register-card button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Login link */
+.login-text {
+  margin-top: 18px;
+  font-size: 13px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.login-text span {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

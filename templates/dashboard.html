@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technician Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+    <span>⚠ Critical Alert: Voltage fluctuation detected. TR-089 requires immediate attention!</span>
+    <button>Take Action</button>
+</div>
+
+
+<!-- HEADER -->
+<div class="header">
+    <h1>Technician Dashboard</h1>
+    <p>Real-time monitoring and control of distribution transformers</p>
+</div>
+
+<!-- STAT CARDS -->
+<div class="stats">
+    <div class="card">
+        <h4>Active Transformers</h4>
+        <p>{{ data.active_transformers }}</p>
+    </div>
+    <div class="card">
+        <h4>Total Load</h4>
+        <p>{{ data.total_load }} kW</p>
+    </div>
+    <div class="card warning">
+        <h4>Active Faults</h4>
+        <p>{{ data.active_faults }}</p>
+    </div>
+    <div class="card success">
+        <h4>System Health</h4>
+        <p>{{ data.system_health }}%</p>
+    </div>
+</div>
+
+<!-- TRANSFORMER MAP -->
+<div class="map-section">
+    <h3>Transformer Distribution Map</h3>
+
+    <div class="map">
+    <div class="transformer normal" title="TR-101 | Load: 2100kW | Last Maint: Jan 2026">TR-101</div>
+    <div class="transformer warning" title="TR-205 | Load: 3200kW | Last Maint: Dec 2025">TR-205</div>
+    <div class="transformer critical" title="TR-089 | Load: 2800kW | Last Maint: Nov 2025">TR-089</div>
+    <div class="transformer normal" title="TR-112 | Load: 1500kW | Last Maint: Jan 2026">TR-112</div>
+    <div class="transformer maintenance" title="TR-334 | Load: 2000kW | Last Maint: Scheduled Feb 2026">TR-334</div>
+</div>
+
+
+    <div class="legend">
+        <span class="normal">Normal</span>
+        <span class="warning">Warning</span>
+        <span class="critical">Critical</span>
+        <span class="maintenance">Maintenance</span>
+    </div>
+</div>
+
+</body>
+</html>
